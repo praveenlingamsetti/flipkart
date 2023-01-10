@@ -1,0 +1,40 @@
+.navbar {
+  height: 90px;
+  width: 100vw;
+  background-color: #2832c2;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  position: fixed;
+}
+.logout-button {
+  background-color: white;
+  border-radius: 5px;
+  color: #4f46e5;
+  height: 30px;
+  width: 90px;
+}
+.options {
+  display: flex;
+}
+.each-options {
+  margin-right: 25px;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+  outline: none;
+}
+
+.logo {
+  height: 10vh;
+  width: 8vw;
+}
+.cart {
+  outline: none;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}

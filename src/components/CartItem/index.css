@@ -1,0 +1,17 @@
+.each-cart-container {
+  background-color: antiquewhite;
+  height: 10vh;
+  width: 100%;
+  display: flex;
+  margin-bottom: 10px;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: bisque;
+}
+.each-cart-img {
+  height: 10vh;
+}
+.delete-icon {
+  height: 5vh;
+  width: 6vw;
+}

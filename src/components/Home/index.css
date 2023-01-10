@@ -1,0 +1,79 @@
+.carousel {
+  height: 25vh;
+  width: 100vh;
+}
+.home-nav {
+  background-color: darkgrey;
+  height: 6vh;
+  width: 100vw;
+  background-size: cover;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  position: fixed;
+  top: 90px;
+}
+.search-input {
+  height: 30px;
+  margin-left: 15px;
+  margin-top: 10px;
+}
+.header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+@media screen and (max-width: 960px) {
+  .home-nav {
+    display: none;
+  }
+}
+.watches {
+  color: blue;
+}
+@media screen and (min-width: 700px) {
+  .footer-phone {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 959px) {
+  .footer-phone {
+    display: none;
+  }
+
+  .input-phone {
+    display: none;
+  }
+
+  .items-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 20px;
+  }
+}
+.items-container {
+  flex-wrap: wrap;
+}
+@media screen and (max-width: 958px) {
+  .footer-phone {
+    background-color: darkgrey;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    border: 3px solid #73ad21;
+    display: flex;
+    justify-content: space-around;
+  }
+}
+
+.bg-home {
+  background-color: darkgray;
+}
+.search-icon {
+  height: 20px;
+  margin-top: 0px;
+}
