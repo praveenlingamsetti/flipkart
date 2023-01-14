@@ -1,7 +1,7 @@
 import {Component} from 'react'
 import {AiOutlineSearch} from 'react-icons/ai'
 
-import CartContext from '../../Context/CartContext'
+// import CartContext from '../../Context/CartContext'
 
 import Header from '../Header'
 import EachItem from '../EachItem'
@@ -180,7 +180,6 @@ const productsList = [
     description: 'SAMSUNG Galaxy Watch 3 41 mm ',
   },
 ]
-const crtList = []
 
 class Home extends Component {
   state = {searchInput: '', homeCart: ''}
@@ -205,96 +204,77 @@ class Home extends Component {
     return searchResults
   }
 
-  onAddToCart = id => {
-    const filteredCartItem = productsList.filter(each => each.id === id)
-    const itm = filteredCartItem[0]
-    crtList.push(itm)
-
-    this.setState({homeCart: crtList})
-  }
-
   renderHome = () => {}
 
   render() {
+    const {searchInput, List, homeCart} = this.state
+    console.log(homeCart, List)
+
+    const searchResults = this.getSearchResults()
+
     return (
-      <CartContext.Consumer>
-        {value => {
-          const {searchInput, List, homeCart} = this.state
-          console.log(List, homeCart)
+      <div className="bg-home">
+        <Header className="header" />
 
-          const searchResults = this.getSearchResults()
-          const {addCartItem} = value
+        <nav className="home-nav">
+          <h1>Watches</h1>
+          <h1>Mobile</h1>
+          <h1>Fashion</h1>
 
-          const onAddToCart = () => {
-            addCartItem({...homeCart})
-          }
+          <div>
+            <input
+              className="search-input"
+              type="search"
+              value={searchInput}
+              placeholder="Search Brands"
+              onChange={this.onChangeInput}
+            />
+            <button
+              type="button"
+              className="search-button"
+              onClick={this.onSubmitSearchInput}
+            >
+              <AiOutlineSearch className="search-icon" />
+            </button>
+          </div>
+          <h1>Grocery</h1>
+          <h1>Electronics</h1>
+          <h1>Appliances</h1>
+        </nav>
 
-          return (
-            <div className="bg-home">
-              <Header className="header" />
-
-              <nav className="home-nav">
-                <h1>Watches</h1>
-                <h1>Mobile</h1>
-                <h1>Fashion</h1>
-
-                <div>
-                  <input
-                    className="search-input"
-                    type="search"
-                    value={searchInput}
-                    placeholder="Search Brands"
-                    onChange={this.onChangeInput}
-                  />
-                  <button
-                    type="button"
-                    className="search-button"
-                    onClick={this.onSubmitSearchInput}
-                  >
-                    <AiOutlineSearch className="search-icon" />
-                  </button>
-                </div>
-                <h1>Grocery</h1>
-                <h1>Electronics</h1>
-                <h1>Appliances</h1>
-              </nav>
-
-              <footer className="footer-phone">
-                <p>Watches</p>
-                <p>Mobiles</p>
-                <div className="input-phone">
-                  <input
-                    className="search-input"
-                    type="search"
-                    value={searchInput}
-                    placeholder="Search brands"
-                    onChange={this.onChangeInput}
-                  />
-                  <button
-                    type="button"
-                    className="search-button"
-                    onClick={this.onSubmitSearchInput}
-                  >
-                    <AiOutlineSearch className="search-icon" />
-                  </button>
-                </div>
-                <p>Fashion</p>
-                <p>Appliances</p>
-              </footer>
-              <div className="items-container">
-                {searchResults.map(each => (
-                  <EachItem
-                    details={each}
-                    key={each.id}
-                    onAddToCart={this.onAddToCart}
-                    add={onAddToCart}
-                  />
-                ))}
-              </div>
-            </div>
-          )
-        }}
-      </CartContext.Consumer>
+        <footer className="footer-phone">
+          <p>Watches</p>
+          <p>Mobiles</p>
+          <div className="input-phone">
+            <input
+              className="search-input"
+              type="search"
+              value={searchInput}
+              placeholder="Search brands"
+              onChange={this.onChangeInput}
+            />
+            <button
+              type="button"
+              className="search-button"
+              onClick={this.onSubmitSearchInput}
+            >
+              <AiOutlineSearch className="search-icon" />
+            </button>
+          </div>
+          <p>Fashion</p>
+          <p>Appliances</p>
+        </footer>
+        <div className="items-container">
+          {searchResults.map(each => (
+            <EachItem
+              details={each}
+              key={each.id}
+              onAddToCart={this.onAddToCart}
+              add={this.onAddToCart}
+            />
+          ))}
+        </div>
+      </div>
     )
   }
 }
